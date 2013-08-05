@@ -1,7 +1,7 @@
 # Internal
 from ..interface import DataSourceInterface
-from .utils.tempfile import SpooledTemporaryFile as _SpooledTemporaryFile
-from ...utils import helpers
+from ..utils.tempfile import SpooledTemporaryFile as _SpooledTemporaryFile
+from ..utils import helpers
 
 MAX_MEMORY = 5 * 1024 * 2 ** 10  # 5 MB
 BUFFER_SIZE = 1 * 1024 * 2 ** 10  # 1 MB

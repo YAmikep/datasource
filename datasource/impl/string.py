@@ -9,7 +9,7 @@ from StringIO import StringIO as _StringIO
 
 # Internal
 from ..interface import DataSourceInterface
-from ...utils import helpers
+from ..utils import helpers
 
 
 class StringDataSource(DataSourceInterface):
