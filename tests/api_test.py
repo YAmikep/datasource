@@ -5,7 +5,7 @@ from nose_parameterized import parameterized
 #from nose.tools import assert_equal, assert_is_instance, assert_raises, assert_in
 
 # Sets of data test
-import test_data as td
+import _test_datasets as tds
 
 from datasource import api as ds_api
 from datasource.exceptions import DataSourceError
@@ -17,11 +17,11 @@ class DataSourceAPITests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        td.setup_files_data_tests()
+        tds.setup_files_data_tests()
 
     @classmethod        
     def tearDownClass(cls):
-        td.clean_files_data_tests()
+        tds.clean_files_data_tests()
 
     @parameterized.expand(endpoints)
     def test_endpoints_all_exists(self, endpoint):        
@@ -31,7 +31,7 @@ class DataSourceAPITests(unittest.TestCase):
     def test_endpoints_discover(self, endpoint):        
         self.assertIn(endpoint, endpoints)        
         
-    @parameterized.expand(td.load_data_tests)
+    @parameterized.expand(tds.load_data_tests)
     def test_created_class_based_on_target(self, name, target, klass, data, datasize_lazy, datasize):
 
         s = ds_api.DataSource(target)

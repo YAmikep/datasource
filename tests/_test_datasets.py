@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*- 
 # set encoding to use u'abé' in the data test
+# Use '_' prefix to this module to hide it from the auto discovering mode of nosetests
 
 # Sets of data test
 # Tuples (name, target, klass, data, datasize when lazy, real datasize)

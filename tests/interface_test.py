@@ -3,7 +3,7 @@ import unittest
 from nose_parameterized import parameterized
 
 # Sets of data test
-import test_data as td
+import _test_datasets as tds
 
 from datasource import *
 
@@ -12,14 +12,14 @@ class DataSourceGlobalTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        td.setup_files_data_tests()
+        tds.setup_files_data_tests()
 
     @classmethod        
     def tearDownClass(cls):
-        td.clean_files_data_tests()
+        tds.clean_files_data_tests()
 
 
-    @parameterized.expand(td.load_data_tests)
+    @parameterized.expand(tds.load_data_tests)
     def test_size(self, name, target, klass, data, datasize_before_load, datasize):
 
         s = DataSource(target)  # By default, preload must be equal to False so check the size.
@@ -37,7 +37,7 @@ class DataSourceGlobalTests(unittest.TestCase):
             self.assertEqual(size, datasize)
 
 
-    @parameterized.expand(td.load_data_tests)
+    @parameterized.expand(tds.load_data_tests)
     def test_get_reader(self, name, target, klass, data, datasize_before_load, datasize):
 
         s = DataSource(target)
