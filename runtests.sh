@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 #
-# On the command line, just pass the tests to run as additional arguments to shut down auto discovering.
+# Auto discovers and runs all the tests (doctests and unittests).
+#
+# On the command line, just pass additional options to throw to nosetests.
+#
 # Usage: http://nose.readthedocs.org/en/latest/usage.html
 # Common options:
 # -v --verbose 
+# --nocapture
+# -s <module_name> => shuts down auto discovering
 
-nosetests -v --nocapture --with-doctest --doctest-extension=rst -s $@
+nosetests --with-doctest $@
