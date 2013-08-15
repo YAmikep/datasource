@@ -1,3 +1,7 @@
+"""
+See README.rst for further information
+
+"""
 import os
 import urlparse
 
