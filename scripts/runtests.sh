@@ -17,4 +17,4 @@
 # --cov-report=html => coverage report in html
 # added --cov-report term-missing because show_missing in .coveragerc has no effect as of today: bug?
 
-nosetests --with-doctest --doctest-extension=rst --with-cov --cov-config .coveragerc --cov-report term-missing $@
+nosetests --with-doctest --doctest-extension=rst --with-cov --cover-erase --cov-config .coveragerc --cov-report term-missing $@

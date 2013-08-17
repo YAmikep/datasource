@@ -1,0 +1,8 @@
+# Include requirements
+-r ./requirements.txt
+
+# Tests specific requirements
+nose
+nose-parameterized
+nose-cov
+coverage

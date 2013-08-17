@@ -1,19 +1,18 @@
 # Testing toolbox
 import unittest
 from nose_parameterized import parameterized
-# Use these tools when assertEqual, etc from unittest.TestCase are not defined ? It seemed to appear once when using @parameterized.expand 
-#from nose.tools import assert_equal, assert_is_instance, assert_raises, assert_in
 
 # Sets of data test
 import _test_datasets as tds
 
-from datasource import api as ds_api
+import datasource
+import datasource.api as ds_api # need it for the __all__ variable
 from datasource.exceptions import DataSourceError
 
 
 endpoints = ['DataSource', 'StringDataSource', 'IterableDataSource', 'FileDataSource', 'RemoteDataSource']
 
-class DataSourceAPITests(unittest.TestCase):
+class APITests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -34,9 +33,9 @@ class DataSourceAPITests(unittest.TestCase):
     @parameterized.expand(tds.load_data_tests)
     def test_created_class_based_on_target(self, name, target, klass, data, datasize_lazy, datasize):
 
-        s = ds_api.DataSource(target)
+        s = datasource.DataSource(target)
         self.assertIsInstance(s, klass)
 
     def test_not_existing_file(self):
         target = "not_exiting_file"
-        self.assertRaises(DataSourceError, ds_api.DataSource, target=target, is_file=True)
+        self.assertRaises(DataSourceError, datasource.DataSource, target=target, is_file=True)
