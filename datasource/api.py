@@ -25,12 +25,13 @@ def DataSource(target, is_file=None, **kwargs):
     
     """
     if isinstance(target, basestring):
-        is_remote = target.startswith('http://')
+        target_head = target[0:10].lower()
 
+        is_remote = target_head.startswith('http://') or target_head.startswith('https://')
         if is_remote:
             return RemoteDataSource(target, **kwargs)
 
-        if target.startswith('file://'):
+        if target_head.startswith('file://'):
             p = urlparse.urlparse(target)
             filepath = os.path.abspath(os.path.join(p.netloc, p.path))
             return FileDataSource(filepath, **kwargs)
