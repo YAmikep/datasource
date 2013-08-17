@@ -25,7 +25,7 @@ The purpose of this library is to remove the pain of thinking of the required ap
 - or even an iterable / a callable that generates data.
 
 It takes care of fetching the data and provides "readers" (file-like objects) to actually get the data.
-It can handle huge amount of data by keeping a low memory footprint. (See the section "Working with huge amount of data")
+It can handle huge amount of data while keeping a low memory footprint. (See the section "Working with huge amount of data")
 
 
 
