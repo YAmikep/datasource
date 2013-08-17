@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 
-from datasource.version import __version__
+__version_info__ = (0, 1, 0)
+__version__ = '.'.join((str(i) for i in __version_info__))
 
 with open('README.rst') as f:
     long_description = f.read()
