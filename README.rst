@@ -66,8 +66,8 @@ There are a couple of possible keyword arguments:
 The following four parameters are useful only when the data is not locally available, i.e. has to be downloaded or generated.
 
 - ``preload``: a boolean to trigger data loading when the object is created (Default: False). A DataSource object is lazy by default.
-- ``max_memory``: the maximum size of the data to store in memory. This threshold triggers the creation of a temporary file.
-- ``buffer_size``: the buffer size
+- ``max_memory``: the maximum size of the data to store in memory. This threshold triggers the creation of a temporary file. (Default: 5MB)
+- ``buffer_size``: the buffer size (Default: 512 KB)
 - ``dir_tmp``: the directory where to create temporary files
 
 
@@ -79,7 +79,7 @@ A ``DataSource`` object has a simple API:
 
 - ``is_loaded`` property: tells whether the source is loaded, meaning that the data is available locally
 - ``load(self)``: will load the data if it has not been done yet
-- ``size(self, force_load=False)``: the size of the data. If the data is not loaded yet, the size is 0, it will not load it unless you set force_load to True to make sure it is loaded before it returns the size.
+- ``size(self, force_load=False)``: the size of the data. If the data is not loaded yet, the size is 0, it will not load it unless you set ``force_load`` to True to make sure it is loaded before it returns the size.
 - ``get_reader(self)``: returns a "reader" which is a file-like object from which you will actually get the data with the read method.
 
 
@@ -182,7 +182,7 @@ Clone and install testing dependencies::
 
 Ensure tests pass::
 
-    $ ./runtests.sh
+    $ ./scripts/runtests.sh
 
 Or using tox::
 
