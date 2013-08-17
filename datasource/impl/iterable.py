@@ -1,10 +1,7 @@
 # Internal
-from ..interface import DataSourceInterface
+from ..interface import DataSourceInterface, MAX_MEMORY, BUFFER_SIZE
 from ..utils.tempfile import SpooledTemporaryFile as _SpooledTemporaryFile
 from ..utils import helpers
-
-MAX_MEMORY = 5 * 1024 * 2 ** 10  # 5 MB
-BUFFER_SIZE = 1 * 1024 * 2 ** 10  # 1 MB
 
 
 class IterableDataSource(DataSourceInterface):

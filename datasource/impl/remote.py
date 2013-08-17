@@ -2,10 +2,7 @@
 import requests
 
 # Internal
-from .iterable import IterableDataSource
-
-MAX_MEMORY = 5 * 1024 * 2 ** 10  # 5 MB
-BUFFER_SIZE = 1 * 1024 * 2 ** 10  # 1 MB
+from .iterable import IterableDataSource, MAX_MEMORY, BUFFER_SIZE
 
 
 class RemoteDataSource(IterableDataSource):

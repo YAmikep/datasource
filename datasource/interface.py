@@ -1,3 +1,6 @@
+MAX_MEMORY = 5 * 1024 * 2 ** 10  # 5 MB
+BUFFER_SIZE = 1 * 512 * 2 ** 10  # 512 KB
+
 class DataSourceInterface(object):
     """Provides a uniform API regardless of how the data should be fetched."""
 
