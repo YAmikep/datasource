@@ -184,6 +184,20 @@ Ensure tests pass::
 
     $ ./scripts/runtests.sh
 
-Or using tox::
+If the result displays ``Ran 0 tests``:
+
+Ran the below on a directory and look at the output.
+
+    $ nosetests -vv --collect-only
+
+If Nose skips executable files, you'll need to change the file mode to non-executable. On Mac OS X or Linux, this can be accomplished with:
+
+    $ chmod 644 *.py
+
+If you cannot change the file mode (e.g.: vagrant shared folder with Windows), you can run Nose with the --exe option to "look for tests in python modules that are executable" (from ``man nosetests``):
+
+    $ ./scripts/runtests.sh --exe
+
+Or you can try using tox::
 
     $ tox
