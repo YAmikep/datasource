@@ -29,7 +29,7 @@ setup(
     author="Michael Palumbo",
     author_email="michael.palumbo87@gmail.com",
     packages=find_packages(exclude=('tests', 'tests.*')), # tests.* is important to exclude all packages under tests
-    install_requires=['requests>1.2,<1.3'],
+    install_requires=['requests>1.2,<2.4.0'],
     include_package_data=True,
     package_data={'': ['AUTHORS', 'LICENSE']},    
     classifiers=[ # All possible values here: https://pypi.python.org/pypi?%3Aaction=list_classifiers
