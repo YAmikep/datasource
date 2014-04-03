@@ -1,6 +1,16 @@
 from setuptools import setup, find_packages
 
-__version_info__ = (0, 1, 0)
+# Dirty hack for error when using vagrant
+# $ python setup.py sdist
+# making hard links in foo-0.1...
+# hard linking README.txt -> foo-0.1
+# error: Operation not permitted
+import os
+if 'vagrant' in str(os.environ):
+    del os.link
+
+
+__version_info__ = (0, 2, 0)
 __version__ = '.'.join((str(i) for i in __version_info__))
 
 with open('README.rst') as f:
